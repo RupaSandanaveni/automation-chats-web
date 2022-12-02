@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.classplusapp</groupId>
+	<artifactId>automation-chats</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>Automation for classplus chats</name>
+	<description>Automation for classplus chats</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<aspectj.version>1.9.6</aspectj.version>
+		<selenium-version>4.0.0-beta-3</selenium-version>
+		<testng-version>7.4.0</testng-version>
+		<ashot-version>1.5.4</ashot-version>
+		<allure-testng-version>2.17.2</allure-testng-version>
+		<log4j-version>2.14.1</log4j-version>
+		<extentreports-version>5.0.8</extentreports-version>
+		<maven-surefire-plugin-version>3.0.0-M3</maven-surefire-plugin-version>
+
+						<chat_org_code>learn</chat_org_code>
+						<chat_email_address>gunjan@gmail.com</chat_email_address>
+						<chat_tutor_mobile_number>9711153079</chat_tutor_mobile_number>
+						<chat_studentOne_mobile_number>9885672410</chat_studentOne_mobile_number>
+						<chat_studentTwo_mobile_number>9705696404</chat_studentTwo_mobile_number>
+						<chat_facultyOne_mobile_number>9885672409</chat_facultyOne_mobile_number>
+						<chat_facultyTwo_mobile_number>9885672403</chat_facultyTwo_mobile_number>
+						<chat_parent_mobile_number>9716110240</chat_parent_mobile_number>
+				
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ru.yandex.qatools.ashot</groupId>
+			<artifactId>ashot</artifactId>
+			<version>${ashot-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>${allure-testng-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j-version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>4.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+
+					<classesDirectory>${project.build.outputDirectory}</classesDirectory>
+
+				</configuration>
+				<!-- I don't specify version at all (Spring Boot can autoconfigure plugin 
+					version) -->
+				<executions>
+					<execution>
+
+						<!-- changed <id> to <phase>, but I don't know whether it's important 
+							or not. -->
+						<phase>integration-test</phase>
+						<!-- ... no changes here: the same as in the question ... -->
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<configuration>
+					<systemPropertyVariables>
+						<chat_org_code>${chat_org_code}</chat_org_code>
+						<chat_email_address>${chat_email_address}</chat_email_address>
+						<chat_tutor_mobile_number>${chat_tutor_mobile_number}</chat_tutor_mobile_number>
+						<chat_studentOne_mobile_number>${chat_studentOne_mobile_number}</chat_studentOne_mobile_number>
+						<chat_studentTwo_mobile_number>${chat_studentTwo_mobile_number}</chat_studentTwo_mobile_number>
+						<chat_facultyOne_mobile_number>${chat_facultyOne_mobile_number}</chat_facultyOne_mobile_number>
+						<chat_facultyTwo_mobile_number>${chat_facultyTwo_mobile_number}</chat_facultyTwo_mobile_number>
+						<chat_parent_mobile_number>${chat_parent_mobile_number}</chat_parent_mobile_number>
+					</systemPropertyVariables>
+					<suiteXmlFiles>
+						<suiteXmlFile>ParentSuiteTestNg.xml</suiteXmlFile>
+						<suiteXmlFile>StudentSuiteTestNg.xml</suiteXmlFile> 
+						<suiteXmlFile>FacultySuiteTestNg.xml</suiteXmlFile>
+						<suiteXmlFile>TutorSuiteTestNg.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<argLine>
+						<!-- for increase disk memory -->
+						<!--export MAVEN_OPTS="-Xmx3000m" -->
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
+				</configuration>
+				<dependencies>
+
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="automation-classplus-student-chat">
+	<parameter name="browser" value="Chrome" />
+	<!--Chats-Web-Automation -->
+	<parameter name="siteURL"
+		value="https://webp-gcp.classplusapp.com" />
+
+	<!-- <groups> <run> <include name="sanity" /> </run> </groups> -->
+
+	<test name="Student End Chats Automation">
+		<classes>
+			
+ 				 <class name="com.classplusapp.web.tests.student.StudentCreatedNewGroupChatTest"/>
+				 <class name="com.classplusapp.web.tests.student.StudentConversationTest" />
+				 <class name="com.classplusapp.web.tests.student.StudentInBatchChatGroupTest"/>
+ 
+ 
+
+		</classes>
+	</test>
+</suite>

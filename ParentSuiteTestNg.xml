@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="automation-classplus-parent-chat">
+	<parameter name="browser" value="Chrome" />
+	<!--Chats-Web-Automation -->
+	<parameter name="siteURL"
+		value="https://webp-gcp.classplusapp.com" />
+
+<!-- 	<groups>
+		<run>
+			<include name="sanity" />
+		</run>
+	</groups> -->
+
+	<test name="Parent End Chats Automation">
+		<classes>
+		<class
+				name="com.classplusapp.web.tests.parent.ParentConversationTest" />			
+		</classes>
+	</test>
+</suite>

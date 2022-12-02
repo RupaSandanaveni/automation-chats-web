@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="automation-classplus-tutor-chat">
+	<parameter name="browser" value="Chrome" />
+	<!--Chats-Web-Automation -->
+	<parameter name="siteURL"
+		value="https://webp-gcp.classplusapp.com" />
+
+<!-- 	<groups>
+		<run>
+			<include name="sanity" />
+		</run>
+	</groups> -->
+
+	<test name="Tutor End Chats Automation">
+		<classes>
+		 
+			<class
+				name="com.classplusapp.web.tests.tutor.TutorInBatchChatGroupTest" />
+			<class
+				name="com.classplusapp.web.tests.tutor.MultipleBatchAnnouncementTest" />
+			<class
+				name="com.classplusapp.web.tests.tutor.StartBroadCastTest" />
+			<class
+				name="com.classplusapp.web.tests.tutor.VerifyStoriesTest" /> 
+			<class
+				name="com.classplusapp.web.tests.tutor.StudentGroupsTest" /> 
+			<class
+				name="com.classplusapp.web.tests.tutor.TutorCreatedNewGroupChatTest" />  
+			 <class 
+			 	name="com.classplusapp.web.tests.tutor.TutorConversationTest" /> 
+
+		</classes>
+	</test>
+	
+</suite>
